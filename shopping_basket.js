@@ -13,6 +13,16 @@ ShoppingBasket.prototype.remove = function(itemToRemove){
   this.itemsInBasket.splice(indexPosition, 1);
 }
 
+ShoppingBasket.prototype.removeAllByName = function(name){
+  var itemsToKeep = [];
+  for (var item of this.itemsInBasket) {
+    if (item.name !== name) {
+      itemsToKeep.push(item);
+    }
+  }
+  this.itemsInBasket = itemsToKeep;
+}
+
 ShoppingBasket.prototype.totalCost = function() {
   var bill = 0;
   for (item of this.itemsInBasket) {
